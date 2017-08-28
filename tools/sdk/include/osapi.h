@@ -6,6 +6,7 @@
 #define _OSAPI_H_
 
 #include <string.h>
+#include "bios/ets.h"
 #include "user_config.h"
 
 #define os_bzero ets_bzero
@@ -32,9 +33,11 @@
 #define os_strncpy ets_strncpy
 #define os_strstr ets_strstr
 #ifdef USE_US_TIMER
-#define os_timer_arm_us(a, b, c) ets_timer_arm_new(a, b, c, 0)
+//#define os_timer_arm_us(a, b, c) ets_timer_arm_new(a, b, c, 0)
+#define os_timer_arm ets_timer_arm_us
 #endif
-#define os_timer_arm(a, b, c) ets_timer_arm_new(a, b, c, 1)
+//#define os_timer_arm(a, b, c) ets_timer_arm_new(a, b, c, 1)
+#define os_timer_arm ets_timer_arm
 #define os_timer_disarm ets_timer_disarm
 #define os_timer_done ets_timer_done
 #define os_timer_handler_isr ets_timer_handler_isr
