@@ -27,8 +27,8 @@
 #include "i2s_reg.h"
 #include "i2s.h"
 
-extern void ets_wdt_enable(void);
-extern void ets_wdt_disable(void);
+//extern void ets_wdt_enable(void);
+//extern void ets_wdt_disable(void);
 
 #define SLC_BUF_CNT (8) //Number of buffers in the I2S circular buffer
 #define SLC_BUF_LEN (64) //Length of one buffer, in 32-bit words.
@@ -164,7 +164,7 @@ bool ICACHE_FLASH_ATTR i2s_write_sample(uint32_t sample) {
           break;
         } else {
           ets_wdt_disable();
-          ets_wdt_enable();
+          //ets_wdt_enable();
         }
       }
     }

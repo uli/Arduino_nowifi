@@ -160,7 +160,8 @@ void pwm_start_timer()
 {
     timer1_disable();
     ETS_FRC_TIMER1_INTR_ATTACH(NULL, NULL);
-    ETS_FRC_TIMER1_NMI_INTR_ATTACH(pwm_timer_isr);
+    //ETS_FRC_TIMER1_NMI_INTR_ATTACH(pwm_timer_isr);
+    ETS_FRC_TIMER1_INTR_ATTACH(pwm_timer_isr, NULL);
     timer1_enable(TIM_DIV1, TIM_EDGE, TIM_SINGLE);
     timer1_write(1);
 }
@@ -170,7 +171,8 @@ void ICACHE_RAM_ATTR pwm_stop_pin(uint8_t pin)
     if(pwm_mask){
         pwm_mask &= ~(1 << pin);
         if(pwm_mask == 0) {
-            ETS_FRC_TIMER1_NMI_INTR_ATTACH(NULL);
+            //ETS_FRC_TIMER1_NMI_INTR_ATTACH(NULL);
+            ETS_FRC_TIMER1_INTR_ATTACH(NULL, NULL);
             timer1_disable();
             timer1_isr_init();
         }

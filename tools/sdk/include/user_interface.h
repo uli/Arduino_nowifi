@@ -43,7 +43,8 @@ struct rst_info{
 	uint32 depc;
 };
 
-struct rst_info* system_get_rst_info(void);
+//struct rst_info* system_get_rst_info(void);
+#define system_get_rst_info() ((struct rst_info *)0x60001100)
 
 #define UPGRADE_FW_BIN1         0x00
 #define UPGRADE_FW_BIN2         0x01
@@ -60,7 +61,8 @@ uint8 system_upgrade_flag_check();
 void system_upgrade_flag_set(uint8 flag);
 
 void system_timer_reinit(void);
-uint32 system_get_time(void);
+//uint32 system_get_time(void);
+#define system_get_time() (*((volatile unsigned int *)(0x3FF20C00))) // io2_regs_[768]
 
 /* user task's prio must be 0/1/2 !!!*/
 enum {

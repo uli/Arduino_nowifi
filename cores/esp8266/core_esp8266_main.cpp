@@ -31,6 +31,7 @@ extern "C" {
 #include "mem.h"
 #include "user_interface.h"
 #include "cont.h"
+#include <bios/uart.h>
 }
 #include <core_version.h>
 
@@ -56,7 +57,7 @@ int atexit(void (*func)()) {
     return 0;
 }
 
-extern "C" void ets_update_cpu_frequency(int freqmhz);
+//extern "C" void ets_update_cpu_frequency(int freqmhz);
 void initVariant() __attribute__((weak));
 void initVariant() {
 }
@@ -147,7 +148,7 @@ extern "C" void __gdb_do_break(){}
 extern "C" void gdb_do_break(void) __attribute__ ((weak, alias("__gdb_do_break")));
 
 void init_done() {
-    system_set_os_print(1);
+//    system_set_os_print(1);
     gdb_init();
     do_global_ctors();
     printf("\n%08x\n", core_version);
@@ -171,5 +172,6 @@ extern "C" void user_init(void) {
         LOOP_TASK_PRIORITY, g_loop_queue,
         LOOP_QUEUE_SIZE);
 
-    system_init_done_cb(&init_done);
+    //system_init_done_cb(&init_done);
+    init_done();
 }
