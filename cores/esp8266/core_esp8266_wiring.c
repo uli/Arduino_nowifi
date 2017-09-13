@@ -41,6 +41,7 @@ void delay_end(void* arg) {
 }
 
 void delay(unsigned long ms) {
+#if 0
     if(ms) {
         os_timer_setfn(&delay_timer, (os_timer_func_t*) &delay_end, 0);
         os_timer_arm(&delay_timer, ms, ONCE);
@@ -51,6 +52,9 @@ void delay(unsigned long ms) {
     if(ms) {
         os_timer_disarm(&delay_timer);
     }
+#else
+    os_delay_us(ms * 1000);
+#endif
 }
 
 void micros_overflow_tick(void* arg) {
