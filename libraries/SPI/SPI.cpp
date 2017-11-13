@@ -291,7 +291,7 @@ inline void SPIClass::setDataBits(uint16_t bits) {
     SPI1U1 = ((SPI1U1 & mask) | ((bits << SPILMOSI) | (bits << SPILMISO)));
 }
 
-uint8_t SPIClass::transfer(uint8_t data) {
+uint8_t ICACHE_RAM_ATTR SPIClass::transfer(uint8_t data) {
     while(SPI1CMD & SPIBUSY) {}
     // reset to 8Bit mode
     setDataBits(8);
@@ -380,7 +380,7 @@ void SPIClass::write32(uint32_t data, bool msb) {
  * @param data uint8_t *
  * @param size uint32_t
  */
-void SPIClass::writeBytes(uint8_t * data, uint32_t size) {
+void ICACHE_RAM_ATTR SPIClass::writeBytes(uint8_t * data, uint32_t size) {
     while(size) {
         if(size > 64) {
             writeBytes_(data, 64);
@@ -393,7 +393,7 @@ void SPIClass::writeBytes(uint8_t * data, uint32_t size) {
     }
 }
 
-void SPIClass::writeBytes_(uint8_t * data, uint8_t size) {
+void ICACHE_RAM_ATTR SPIClass::writeBytes_(uint8_t * data, uint8_t size) {
     while(SPI1CMD & SPIBUSY) {}
     // Set Bits to transfer
     setDataBits(size * 8);
@@ -497,7 +497,7 @@ void SPIClass::writePattern(uint8_t * data, uint8_t size, uint32_t repeat) {
  * @param in  uint8_t *
  * @param size uint32_t
  */
-void SPIClass::transferBytes(uint8_t * out, uint8_t * in, uint32_t size) {
+void ICACHE_RAM_ATTR SPIClass::transferBytes(uint8_t * out, uint8_t * in, uint32_t size) {
     while(size) {
         if(size > 64) {
             transferBytes_(out, in, 64);
@@ -511,7 +511,7 @@ void SPIClass::transferBytes(uint8_t * out, uint8_t * in, uint32_t size) {
     }
 }
 
-void SPIClass::transferBytes_(uint8_t * out, uint8_t * in, uint8_t size) {
+void ICACHE_RAM_ATTR SPIClass::transferBytes_(uint8_t * out, uint8_t * in, uint8_t size) {
     while(SPI1CMD & SPIBUSY) {}
     // Set in/out Bits to transfer
 
