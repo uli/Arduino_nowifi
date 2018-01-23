@@ -28,7 +28,9 @@
 extern void esp_schedule();
 extern void esp_yield();
 
+#ifndef ESP8266_NOWIFI
 static os_timer_t delay_timer;
+#endif
 static os_timer_t micros_overflow_timer;
 static uint32_t micros_at_last_overflow_tick = 0;
 static uint32_t micros_overflow_count = 0;
@@ -41,7 +43,7 @@ void delay_end(void* arg) {
 }
 
 void delay(unsigned long ms) {
-#if 0
+#ifndef ESP8266_NOWIFI
     if(ms) {
         os_timer_setfn(&delay_timer, (os_timer_func_t*) &delay_end, 0);
         os_timer_arm(&delay_timer, ms, ONCE);
