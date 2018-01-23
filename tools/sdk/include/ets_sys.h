@@ -62,7 +62,7 @@ typedef void (*int_handler_t)(void*);
 #define ETS_INTR_DISABLE(inum) \
     ets_isr_mask((1<<inum))
 
-inline bool ETS_INTR_WITHINISR()
+static inline bool ETS_INTR_WITHINISR()
 {
     uint32_t ps;
     __asm__ __volatile__("rsr %0,ps":"=a" (ps));
