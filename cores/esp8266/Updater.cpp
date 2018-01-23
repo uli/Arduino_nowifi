@@ -84,7 +84,9 @@ bool UpdaterClass::begin(size_t size, int command) {
   _reset();
   _error = 0;
 
+#ifndef ESP8266_NOWIFI
   wifi_set_sleep_type(NONE_SLEEP_T);
+#endif
 
   uint32_t updateStartAddress = 0;
   if (command == U_FLASH) {
