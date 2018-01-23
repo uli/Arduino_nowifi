@@ -323,7 +323,7 @@ uint16_t SPIClass::transfer16(uint16_t data) {
     return out.val;
 }
 
-void SPIClass::write(uint8_t data) {
+void ICACHE_RAM_ATTR SPIClass::write(uint8_t data) {
     while(SPI1CMD & SPIBUSY) {}
     // reset to 8Bit mode
     setDataBits(8);
