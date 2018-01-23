@@ -7,7 +7,9 @@
 extern "C" {
 #endif
 
+#ifndef RTC_MEM
 #define RTC_MEM ((volatile uint32_t*)0x60001200)
+#endif
 
 enum action_t {
     ACTION_COPY_RAW = 0x00000001,
