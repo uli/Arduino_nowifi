@@ -1397,6 +1397,138 @@ d1_mini_up.menu.FlashSize.4M1M.build.spiffs_blocksize=8192
 d1_mini_up.menu.FlashSize.4M1M.build.spiffs_pagesize=256
 
 ##############################################################
+basic_engine.name=BASIC Engine
+
+basic_engine.upload.tool=esptool
+basic_engine.upload.speed=460800
+basic_engine.upload.resetmethod=ck
+basic_engine.upload.maximum_size=1044464
+basic_engine.upload.maximum_data_size=81920
+basic_engine.upload.wait_for_upload_port=true
+basic_engine.serial.disableDTR=false
+basic_engine.serial.disableRTS=false
+
+basic_engine.build.mcu=esp8266
+basic_engine.build.f_cpu=160000000L
+basic_engine.build.board=ESP8266_BASIC_ENGINE
+basic_engine.build.core=esp8266
+basic_engine.build.variant=basic_engine
+basic_engine.build.flash_mode=dio
+basic_engine.build.flash_size=4M
+basic_engine.build.flash_freq=40
+basic_engine.build.debug_port=
+basic_engine.build.debug_level=
+basic_engine_up.build.flash_addr=0x00000
+
+basic_engine.menu.CpuFrequency.80=80 MHz
+basic_engine.menu.CpuFrequency.80.build.f_cpu=80000000L
+basic_engine.menu.CpuFrequency.160=160 MHz
+basic_engine.menu.CpuFrequency.160.build.f_cpu=160000000L
+
+basic_engine.menu.UploadSpeed.921600=921600
+basic_engine.menu.UploadSpeed.921600.upload.speed=921600
+basic_engine.menu.UploadSpeed.115200=115200
+basic_engine.menu.UploadSpeed.115200.upload.speed=115200
+basic_engine.menu.UploadSpeed.9600=9600
+basic_engine.menu.UploadSpeed.9600.upload.speed=9600
+basic_engine.menu.UploadSpeed.57600=57600
+basic_engine.menu.UploadSpeed.57600.upload.speed=57600
+basic_engine.menu.UploadSpeed.256000.windows=256000
+basic_engine.menu.UploadSpeed.256000.upload.speed=256000
+basic_engine.menu.UploadSpeed.230400.linux=230400
+basic_engine.menu.UploadSpeed.230400.macosx=230400
+basic_engine.menu.UploadSpeed.230400.macosx=230400
+basic_engine.menu.UploadSpeed.230400.upload.speed=230400
+basic_engine.menu.UploadSpeed.460800.linux=460800
+basic_engine.menu.UploadSpeed.460800.macosx=460800
+basic_engine.menu.UploadSpeed.460800.upload.speed=460800
+basic_engine.menu.UploadSpeed.512000.windows=512000
+basic_engine.menu.UploadSpeed.512000.upload.speed=512000
+
+basic_engine.menu.FlashSize.4M3M=4M (3M SPIFFS)
+basic_engine.menu.FlashSize.4M3M.build.flash_size=4M
+#basic_engine.menu.FlashSize.4M3M.build.flash_ld=eagle.flash.4m.ld
+basic_engine.menu.FlashSize.4M3M.build.flash_ld=/home/uli/devel/esp8266/SDKnoWiFi/ld/eagle.app.v6.ld
+#basic_engine.menu.FlashSize.4M3M.build.flash_ld=eagle.app.v6.common.ld
+basic_engine.menu.FlashSize.4M3M.build.spiffs_start=0x100000
+basic_engine.menu.FlashSize.4M3M.build.spiffs_end=0x3FB000
+basic_engine.menu.FlashSize.4M3M.build.spiffs_blocksize=8192
+basic_engine.menu.FlashSize.4M3M.build.spiffs_pagesize=256
+
+basic_engine.menu.FlashSize.4M1M=4M (1M SPIFFS)
+basic_engine.menu.FlashSize.4M1M.build.flash_size=4M
+basic_engine.menu.FlashSize.4M1M.build.flash_ld=eagle.flash.4m1m.ld
+basic_engine.menu.FlashSize.4M1M.build.spiffs_start=0x300000
+basic_engine.menu.FlashSize.4M1M.build.spiffs_end=0x3FB000
+basic_engine.menu.FlashSize.4M1M.build.spiffs_blocksize=8192
+basic_engine.menu.FlashSize.4M1M.build.spiffs_pagesize=256
+
+##############################################################
+basic_engine_up.name=BASIC Engine linked to 0x80000
+
+basic_engine_up.upload.tool=esptool
+basic_engine_up.upload.speed=460800
+basic_engine_up.upload.resetmethod=nodemcu
+basic_engine_up.upload.maximum_size=1044464
+basic_engine_up.upload.maximum_data_size=81920
+basic_engine_up.upload.wait_for_upload_port=true
+basic_engine_up.serial.disableDTR=true
+basic_engine_up.serial.disableRTS=true
+
+basic_engine_up.build.mcu=esp8266
+basic_engine_up.build.f_cpu=160000000L
+basic_engine_up.build.board=ESP8266_BASIC_ENGINE
+basic_engine_up.build.core=esp8266
+basic_engine_up.build.variant=basic_engine
+basic_engine_up.build.flash_mode=dio
+basic_engine_up.build.flash_size=4M
+basic_engine_up.build.flash_freq=40
+basic_engine_up.build.debug_port=
+basic_engine_up.build.debug_level=
+basic_engine_up.build.flash_addr=0x80000
+
+basic_engine_up.menu.CpuFrequency.80=80 MHz
+basic_engine_up.menu.CpuFrequency.80.build.f_cpu=80000000L
+basic_engine_up.menu.CpuFrequency.160=160 MHz
+basic_engine_up.menu.CpuFrequency.160.build.f_cpu=160000000L
+
+basic_engine_up.menu.UploadSpeed.921600=921600
+basic_engine_up.menu.UploadSpeed.921600.upload.speed=921600
+basic_engine_up.menu.UploadSpeed.115200=115200
+basic_engine_up.menu.UploadSpeed.115200.upload.speed=115200
+basic_engine_up.menu.UploadSpeed.9600=9600
+basic_engine_up.menu.UploadSpeed.9600.upload.speed=9600
+basic_engine_up.menu.UploadSpeed.57600=57600
+basic_engine_up.menu.UploadSpeed.57600.upload.speed=57600
+basic_engine_up.menu.UploadSpeed.256000.windows=256000
+basic_engine_up.menu.UploadSpeed.256000.upload.speed=256000
+basic_engine_up.menu.UploadSpeed.230400.linux=230400
+basic_engine_up.menu.UploadSpeed.230400.macosx=230400
+basic_engine_up.menu.UploadSpeed.230400.macosx=230400
+basic_engine_up.menu.UploadSpeed.230400.upload.speed=230400
+basic_engine_up.menu.UploadSpeed.460800.linux=460800
+basic_engine_up.menu.UploadSpeed.460800.macosx=460800
+basic_engine_up.menu.UploadSpeed.460800.upload.speed=460800
+basic_engine_up.menu.UploadSpeed.512000.windows=512000
+basic_engine_up.menu.UploadSpeed.512000.upload.speed=512000
+
+basic_engine_up.menu.FlashSize.4M3M=4M (3M SPIFFS)
+basic_engine_up.menu.FlashSize.4M3M.build.flash_size=4M
+basic_engine_up.menu.FlashSize.4M3M.build.flash_ld=eagle.flash.4m_up.ld
+basic_engine_up.menu.FlashSize.4M3M.build.spiffs_start=0x100000
+basic_engine_up.menu.FlashSize.4M3M.build.spiffs_end=0x3FB000
+basic_engine_up.menu.FlashSize.4M3M.build.spiffs_blocksize=8192
+basic_engine_up.menu.FlashSize.4M3M.build.spiffs_pagesize=256
+
+basic_engine_up.menu.FlashSize.4M1M=4M (1M SPIFFS)
+basic_engine_up.menu.FlashSize.4M1M.build.flash_size=4M
+basic_engine_up.menu.FlashSize.4M1M.build.flash_ld=eagle.flash.4m1m_up.ld
+basic_engine_up.menu.FlashSize.4M1M.build.spiffs_start=0x300000
+basic_engine_up.menu.FlashSize.4M1M.build.spiffs_end=0x3FB000
+basic_engine_up.menu.FlashSize.4M1M.build.spiffs_blocksize=8192
+basic_engine_up.menu.FlashSize.4M1M.build.spiffs_pagesize=256
+
+##############################################################
 d1.name=WeMos D1(Retired)
 
 d1.upload.tool=esptool
