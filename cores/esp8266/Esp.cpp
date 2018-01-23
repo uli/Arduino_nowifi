@@ -150,9 +150,17 @@ uint16_t EspClass::getVcc(void)
     return system_get_vdd33();
 }
 
+#ifdef ESP8266_NOWIFI
+extern "C" size_t umm_free_heap_size( void );
+#endif
+
 uint32_t EspClass::getFreeHeap(void)
 {
+#ifdef ESP8266_NOWIFI
+    return umm_free_heap_size();
+#else
     return system_get_free_heap_size();
+#endif
 }
 
 uint32_t EspClass::getChipId(void)
