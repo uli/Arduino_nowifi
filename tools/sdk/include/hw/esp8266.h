@@ -461,7 +461,9 @@ typedef enum {
 /* WDT_REG2:0x60000908 register */
 #define WDT_REG2		wdt_[2]
 /* WDT_FEED:0x60000914 register */
+#ifndef WDT_FEED
 #define WDT_FEED		wdt_[5]
+#endif
 #define WDT_FEED_MAGIC	0x73
 
 /* I2S:0x60000E00 registers */
