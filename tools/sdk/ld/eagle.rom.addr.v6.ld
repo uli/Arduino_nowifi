@@ -20,7 +20,6 @@ PROVIDE ( SPI_read_status = 0x400043c8 );
 PROVIDE ( SPI_write_status = 0x40004400 );
 PROVIDE ( SPI_write_enable = 0x4000443c );
 PROVIDE ( Wait_SPI_Idle = 0x4000448c );
-PROVIDE ( Enable_QMode = 0x400044c0 );
 PROVIDE ( SPIEraseArea = 0x40004b44 );
 PROVIDE ( SPIEraseBlock = 0x400049b4 );
 PROVIDE ( SPIEraseChip = 0x40004984 );
@@ -344,8 +343,49 @@ PROVIDE ( xthal_window_spill = 0x4000e324 );
 PROVIDE ( xthal_window_spill_nw = 0x4000e320 );
 
 PROVIDE ( Te0 = 0x3fffccf0 );
-PROVIDE ( Td0 = 0x3fffd100 );
-PROVIDE ( Td4s = 0x3fffd500);
-PROVIDE ( rcons = 0x3fffd0f0);
 PROVIDE ( UartDev = 0x3fffde10 );
-PROVIDE ( flashchip = 0x3fffc714);
+PROVIDE ( rtc_calib = 0x3fffc700 );
+PROVIDE ( cpu_clk_mhz = 0x3fffc704 );
+PROVIDE ( wdt_info = 0x3fffc708 );
+PROVIDE ( flashchip = 0x3fffc714 );
+
+PROVIDE ( esp_print_exception_regs = 0x40001878 );
+PROVIDE ( esp_dump_regs = 0x400017E0 );
+PROVIDE ( esp_FatalException = 0x40001878 );
+PROVIDE ( esp_exception9 = 0x400017E0 );
+PROVIDE ( SPIFlashCnfig = 0x40004568 );
+PROVIDE ( _putc1 = 0x40001dcc );
+PROVIDE ( _putc2_def = 0x400024A8 );
+PROVIDE ( printf_buf_len = 0x3FFFDD58 );
+PROVIDE ( printf_pbuf = 0x3FFFDD5C );
+PROVIDE ( user_start_proc = 0x3FFFDCD0 );
+PROVIDE ( dtm_params = 0x3FFFDD64 );
+
+PROVIDE ( timer_list = 0x3FFFDDB0 );
+/*
+PROVIDE ( debug_timer = 0x3FFFDDB4 );
+PROVIDE ( debug_timerfn = 0x3FFFDDB8 ); */
+
+/* 0x3FFFE360..0x3FFFEA80 ram buf max 1824 bytes */
+PROVIDE ( _sprintf_buf = 0x3FFFE360 ); /* char * _sprintf_buf; - use ets_sprintf */
+PROVIDE ( print_mem_buf = 0x3FFFE364 ); /* os_printf_plus() + ets_sprintf() buf 1820 bytes */
+
+PROVIDE ( dport_	= 0x3ff00000);
+PROVIDE ( io2_regs_	= 0x3ff20000);
+PROVIDE ( uart0_	= 0x60000000);
+PROVIDE ( spi1_		= 0x60000100);
+PROVIDE ( spi0_		= 0x60000200);
+PROVIDE ( gpio_		= 0x60000300);
+PROVIDE ( timer_	= 0x60000600);
+PROVIDE ( rtc_		= 0x60000700);
+PROVIDE ( iomux_	= 0x60000800);
+PROVIDE ( wdt_		= 0x60000900);
+PROVIDE ( wdt_		= 0x60000900);
+PROVIDE ( scl_		= 0x60000B00);
+PROVIDE ( sar_		= 0x60000D00);
+PROVIDE ( i2s_		= 0x60000E00);
+PROVIDE ( uart1_	= 0x60000F00);
+PROVIDE ( rtc_ram_	= 0x60001000);
+PROVIDE ( rtc_mem_	= 0x60001100);
+PROVIDE ( io4_regs_	= 0x60009800);
+

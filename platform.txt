@@ -36,7 +36,7 @@ compiler.c.elf.flags=-g {compiler.warning_flags} -O2 -nostdlib -Wl,--no-check-se
 
 compiler.c.elf.cmd=xtensa-lx106-elf-gcc
 #compiler.c.elf.libs=-lhal -lphy -lpp -lnet80211 {build.lwip_lib} -lwpa -lcrypto -lmain -lwps -laxtls -lespnow -lsmartconfig -lmesh -lwpa2 -lstdc++ -lm -lc -lgcc
-compiler.c.elf.libs=-L/home/uli/devel/esp8266/SDKnoWiFi/lib -lstdc++ -lm -lc -lmgcc -lloader -lsys
+compiler.c.elf.libs=-L{runtime.platform.path}/tools/sdk/lib -lstdc++ -lm -lc -lmgcc -lloader -lsys
 
 compiler.cpp.cmd=xtensa-lx106-elf-g++
 compiler.cpp.flags=-c {compiler.warning_flags} -Wno-delete-non-virtual-dtor -O2 -g -mlongcalls -mtext-section-literals -fno-exceptions -fno-rtti -falign-functions=4 -std=c++11 -MMD -ffunction-sections -fdata-sections
