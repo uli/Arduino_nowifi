@@ -522,9 +522,7 @@ bool EspClass::flashWrite(uint32_t offset, uint32_t *data, size_t size) {
 }
 
 bool EspClass::flashRead(uint32_t offset, uint32_t *data, size_t size) {
-    ets_isr_mask(FLASH_INT_MASK);
     int rc = spi_flash_read(offset, (uint32_t*) data, size);
-    ets_isr_unmask(FLASH_INT_MASK);
     return rc == 0;
 }
 
