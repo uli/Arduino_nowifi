@@ -104,7 +104,7 @@ class FS
 public:
     FS(FSImplPtr impl) : _impl(impl) { }
 
-    bool begin();
+    bool begin(bool format = true);
     void end();
     
     bool format();

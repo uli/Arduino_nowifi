@@ -160,11 +160,11 @@ bool Dir::next() {
     return _impl->next();
 }
 
-bool FS::begin() {
+bool FS::begin(bool format) {
     if (!_impl) {
         return false;
     }
-    return _impl->begin();
+    return _impl->begin(format);
 }
 
 void FS::end() {

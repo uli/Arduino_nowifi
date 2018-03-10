@@ -112,7 +112,7 @@ public:
         return true;
     }
 
-    bool begin() override
+    bool begin(bool format = true) override
     {
         if (SPIFFS_mounted(&_fs) != 0) {
             return true;
@@ -123,6 +123,9 @@ public:
         }
         if (_tryMount()) {
             return true;
+        }
+        if (!format) {
+            return false;
         }
         auto rc = SPIFFS_format(&_fs);
         if (rc != SPIFFS_OK) {
