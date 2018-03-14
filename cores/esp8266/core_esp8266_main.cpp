@@ -35,6 +35,8 @@ extern "C" {
 }
 #include <core_version.h>
 
+//#define HAVE_CONT
+
 #define LOOP_TASK_PRIORITY 1
 #define LOOP_QUEUE_SIZE    1
 
@@ -76,15 +78,19 @@ void preloop_update_frequency() {
 extern void (*__init_array_start)(void);
 extern void (*__init_array_end)(void);
 
+#ifdef HAVE_CONT
 cont_t g_cont __attribute__ ((aligned (16)));
+#endif
 static os_event_t g_loop_queue[LOOP_QUEUE_SIZE];
 
 static uint32_t g_micros_at_task_start;
 
 extern "C" void esp_yield() {
+#ifdef HAVE_CONT
     if (cont_can_yield(&g_cont)) {
         cont_yield(&g_cont);
     }
+#endif
 }
 
 extern "C" void esp_schedule() {
@@ -92,6 +98,7 @@ extern "C" void esp_schedule() {
 }
 
 extern "C" void __yield() {
+#ifdef HAVE_CONT
     if (cont_can_yield(&g_cont)) {
         esp_schedule();
         esp_yield();
@@ -99,16 +106,19 @@ extern "C" void __yield() {
     else {
         panic();
     }
+#endif
 }
 
 extern "C" void yield(void) __attribute__ ((weak, alias("__yield")));
 
 extern "C" void optimistic_yield(uint32_t interval_us) {
+#ifdef HAVE_CONT
     if (cont_can_yield(&g_cont) &&
         (system_get_time() - g_micros_at_task_start) > interval_us)
     {
         yield();
     }
+#endif
 }
 
 static void loop_wrapper() {
@@ -129,10 +139,15 @@ static void loop_wrapper() {
 static void loop_task(os_event_t *events) {
     (void) events;
     g_micros_at_task_start = system_get_time();
+#ifndef HAVE_CONT
+    ets_wdt_disable();
+    loop_wrapper();
+#else
     cont_run(&g_cont, &loop_wrapper);
     if (cont_check(&g_cont) != 0) {
         panic();
     }
+#endif
 }
 
 static void do_global_ctors(void) {
@@ -166,7 +181,9 @@ extern "C" void user_init(void) {
 
     initVariant();
 
+#ifdef HAVE_CONT
     cont_init(&g_cont);
+#endif
 
     ets_task(loop_task,
         LOOP_TASK_PRIORITY, g_loop_queue,
