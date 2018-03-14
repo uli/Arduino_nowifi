@@ -1,5 +1,10 @@
-Arduino core for ESP8266 WiFi chip
+Non-WiFi Arduino core for ESP8266 WiFi chip
 ===========================================
+
+This is a modified Arduino core that uses the [SDKnoWifi SDK](https://github.com/pvvx/SDKnoWiFi)
+to save memory for applications that do not need networking.
+
+Original README.md:
 
 This project brings support for ESP8266 chip to the Arduino environment. It lets you write sketches using familiar Arduino functions and libraries, and run them directly on ESP8266, no external microcontroller required.
 
