@@ -221,9 +221,9 @@ void ICACHE_FLASH_ATTR i2s_begin(){
   _i2s_sample_rate = 0;
   i2s_slc_begin();
   
-  pinMode(2, FUNCTION_1); //I2SO_WS (LRCK)
+//  pinMode(2, FUNCTION_1); //I2SO_WS (LRCK)
   pinMode(3, FUNCTION_1); //I2SO_DATA (SDIN)
-  pinMode(15, FUNCTION_1); //I2SO_BCK (SCLK)
+//  pinMode(15, FUNCTION_1); //I2SO_BCK (SCLK)
   
   I2S_CLK_ENABLE();
   I2SIC = 0x3F;
@@ -249,9 +249,9 @@ void ICACHE_FLASH_ATTR i2s_end(){
   I2SC |= I2SRST;
   I2SC &= ~(I2SRST);
 
-  pinMode(2, INPUT);
+//  pinMode(2, INPUT);
   pinMode(3, INPUT);
-  pinMode(15, INPUT);
+//  pinMode(15, INPUT);
 
   i2s_slc_end();
 }
