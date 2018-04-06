@@ -176,7 +176,7 @@ generic.menu.FlashSize.4M1M.upload.maximum_size=1044464
 
 generic.menu.FlashSize.4M3M=4M (3M SPIFFS)
 generic.menu.FlashSize.4M3M.build.flash_size=4M
-generic.menu.FlashSize.4M3M.build.flash_ld=eagle.flash.4m.ld
+generic.menu.FlashSize.4M3M.build.flash_ld=../ld/eagle.app.v6.ld
 generic.menu.FlashSize.4M3M.build.spiffs_start=0x100000
 generic.menu.FlashSize.4M3M.build.spiffs_end=0x3FB000
 generic.menu.FlashSize.4M3M.build.spiffs_blocksize=8192
@@ -398,7 +398,7 @@ espduino.menu.UploadSpeed.921600.upload.speed=921600
 
 espduino.menu.FlashSize.4M3M=4M (3M SPIFFS)
 espduino.menu.FlashSize.4M3M.build.flash_size=4M
-espduino.menu.FlashSize.4M3M.build.flash_ld=eagle.flash.4m.ld
+espduino.menu.FlashSize.4M3M.build.flash_ld=../ld/eagle.app.v6.ld
 espduino.menu.FlashSize.4M3M.build.spiffs_start=0x100000
 espduino.menu.FlashSize.4M3M.build.spiffs_end=0x3FB000
 espduino.menu.FlashSize.4M3M.build.spiffs_blocksize=8192
@@ -452,7 +452,7 @@ huzzah.menu.UploadSpeed.921600.upload.speed=921600
 
 huzzah.menu.FlashSize.4M3M=4M (3M SPIFFS)
 huzzah.menu.FlashSize.4M3M.build.flash_size=4M
-huzzah.menu.FlashSize.4M3M.build.flash_ld=eagle.flash.4m.ld
+huzzah.menu.FlashSize.4M3M.build.flash_ld=../ld/eagle.app.v6.ld
 huzzah.menu.FlashSize.4M3M.build.spiffs_start=0x100000
 huzzah.menu.FlashSize.4M3M.build.spiffs_end=0x3FB000
 huzzah.menu.FlashSize.4M3M.build.spiffs_blocksize=8192
@@ -508,7 +508,7 @@ espresso_lite_v1.menu.UploadSpeed.921600.upload.speed=921600
 
 espresso_lite_v1.menu.FlashSize.4M3M=4M (3M SPIFFS)
 espresso_lite_v1.menu.FlashSize.4M3M.build.flash_size=4M
-espresso_lite_v1.menu.FlashSize.4M3M.build.flash_ld=eagle.flash.4m.ld
+espresso_lite_v1.menu.FlashSize.4M3M.build.flash_ld=../ld/eagle.app.v6.ld
 espresso_lite_v1.menu.FlashSize.4M3M.build.spiffs_start=0x100000
 espresso_lite_v1.menu.FlashSize.4M3M.build.spiffs_end=0x3FB000
 espresso_lite_v1.menu.FlashSize.4M3M.build.spiffs_blocksize=8192
@@ -613,7 +613,7 @@ espresso_lite_v2.menu.UploadSpeed.921600.upload.speed=921600
 
 espresso_lite_v2.menu.FlashSize.4M3M=4M (3M SPIFFS)
 espresso_lite_v2.menu.FlashSize.4M3M.build.flash_size=4M
-espresso_lite_v2.menu.FlashSize.4M3M.build.flash_ld=eagle.flash.4m.ld
+espresso_lite_v2.menu.FlashSize.4M3M.build.flash_ld=../ld/eagle.app.v6.ld
 espresso_lite_v2.menu.FlashSize.4M3M.build.spiffs_start=0x100000
 espresso_lite_v2.menu.FlashSize.4M3M.build.spiffs_end=0x3FB000
 espresso_lite_v2.menu.FlashSize.4M3M.build.spiffs_blocksize=8192
@@ -718,7 +718,7 @@ phoenix_v1.menu.UploadSpeed.921600.upload.speed=921600
 
 phoenix_v1.menu.FlashSize.4M3M=4M (3M SPIFFS)
 phoenix_v1.menu.FlashSize.4M3M.build.flash_size=4M
-phoenix_v1.menu.FlashSize.4M3M.build.flash_ld=eagle.flash.4m.ld
+phoenix_v1.menu.FlashSize.4M3M.build.flash_ld=../ld/eagle.app.v6.ld
 phoenix_v1.menu.FlashSize.4M3M.build.spiffs_start=0x100000
 phoenix_v1.menu.FlashSize.4M3M.build.spiffs_end=0x3FB000
 phoenix_v1.menu.FlashSize.4M3M.build.spiffs_blocksize=8192
@@ -823,7 +823,7 @@ phoenix_v2.menu.UploadSpeed.921600.upload.speed=921600
 
 phoenix_v2.menu.FlashSize.4M3M=4M (3M SPIFFS)
 phoenix_v2.menu.FlashSize.4M3M.build.flash_size=4M
-phoenix_v2.menu.FlashSize.4M3M.build.flash_ld=eagle.flash.4m.ld
+phoenix_v2.menu.FlashSize.4M3M.build.flash_ld=../ld/eagle.app.v6.ld
 phoenix_v2.menu.FlashSize.4M3M.build.spiffs_start=0x100000
 phoenix_v2.menu.FlashSize.4M3M.build.spiffs_end=0x3FB000
 phoenix_v2.menu.FlashSize.4M3M.build.spiffs_blocksize=8192
@@ -936,7 +936,7 @@ nodemcu.menu.UploadSpeed.921600.upload.speed=921600
 
 nodemcu.menu.FlashSize.4M3M=4M (3M SPIFFS)
 nodemcu.menu.FlashSize.4M3M.build.flash_size=4M
-nodemcu.menu.FlashSize.4M3M.build.flash_ld=eagle.flash.4m.ld
+nodemcu.menu.FlashSize.4M3M.build.flash_ld=../ld/eagle.app.v6.ld
 nodemcu.menu.FlashSize.4M3M.build.spiffs_start=0x100000
 nodemcu.menu.FlashSize.4M3M.build.spiffs_end=0x3FB000
 nodemcu.menu.FlashSize.4M3M.build.spiffs_blocksize=8192
@@ -1000,7 +1000,7 @@ nodemcuv2.menu.UploadSpeed.921600.upload.speed=921600
 
 nodemcuv2.menu.FlashSize.4M3M=4M (3M SPIFFS)
 nodemcuv2.menu.FlashSize.4M3M.build.flash_size=4M
-nodemcuv2.menu.FlashSize.4M3M.build.flash_ld=eagle.flash.4m.ld
+nodemcuv2.menu.FlashSize.4M3M.build.flash_ld=../ld/eagle.app.v6.ld
 nodemcuv2.menu.FlashSize.4M3M.build.spiffs_start=0x100000
 nodemcuv2.menu.FlashSize.4M3M.build.spiffs_end=0x3FB000
 nodemcuv2.menu.FlashSize.4M3M.build.spiffs_blocksize=8192
@@ -1219,7 +1219,7 @@ esp210.menu.UploadSpeed.921600.upload.speed=921600
 
 esp210.menu.FlashSize.4M3M=4M (3M SPIFFS)
 esp210.menu.FlashSize.4M3M.build.flash_size=4M
-esp210.menu.FlashSize.4M3M.build.flash_ld=eagle.flash.4m.ld
+esp210.menu.FlashSize.4M3M.build.flash_ld=../ld/eagle.app.v6.ld
 esp210.menu.FlashSize.4M3M.build.spiffs_start=0x100000
 esp210.menu.FlashSize.4M3M.build.spiffs_end=0x3FB000
 esp210.menu.FlashSize.4M3M.build.spiffs_blocksize=8192
@@ -1314,9 +1314,7 @@ d1_mini.menu.UploadSpeed.512000.upload.speed=512000
 
 d1_mini.menu.FlashSize.4M3M=4M (3M SPIFFS)
 d1_mini.menu.FlashSize.4M3M.build.flash_size=4M
-#d1_mini.menu.FlashSize.4M3M.build.flash_ld=eagle.flash.4m.ld
 d1_mini.menu.FlashSize.4M3M.build.flash_ld=../ld/eagle.app.v6.ld
-#d1_mini.menu.FlashSize.4M3M.build.flash_ld=eagle.app.v6.common.ld
 d1_mini.menu.FlashSize.4M3M.build.spiffs_start=0x100000
 d1_mini.menu.FlashSize.4M3M.build.spiffs_end=0x3FB000
 d1_mini.menu.FlashSize.4M3M.build.spiffs_blocksize=8192
@@ -1447,9 +1445,7 @@ basic_engine.menu.UploadSpeed.512000.upload.speed=512000
 
 basic_engine.menu.FlashSize.4M3M=4M (3M SPIFFS)
 basic_engine.menu.FlashSize.4M3M.build.flash_size=4M
-#basic_engine.menu.FlashSize.4M3M.build.flash_ld=eagle.flash.4m.ld
 basic_engine.menu.FlashSize.4M3M.build.flash_ld=../ld/eagle.app.v6.ld
-#basic_engine.menu.FlashSize.4M3M.build.flash_ld=eagle.app.v6.common.ld
 basic_engine.menu.FlashSize.4M3M.build.spiffs_start=0x100000
 basic_engine.menu.FlashSize.4M3M.build.spiffs_end=0x3FB000
 basic_engine.menu.FlashSize.4M3M.build.spiffs_blocksize=8192
@@ -1579,7 +1575,7 @@ d1.menu.UploadSpeed.512000.upload.speed=512000
 
 d1.menu.FlashSize.4M3M=4M (3M SPIFFS)
 d1.menu.FlashSize.4M3M.build.flash_size=4M
-d1.menu.FlashSize.4M3M.build.flash_ld=eagle.flash.4m.ld
+d1.menu.FlashSize.4M3M.build.flash_ld=../ld/eagle.app.v6.ld
 d1.menu.FlashSize.4M3M.build.spiffs_start=0x100000
 d1.menu.FlashSize.4M3M.build.spiffs_end=0x3FB000
 d1.menu.FlashSize.4M3M.build.spiffs_blocksize=8192
@@ -1659,7 +1655,7 @@ espino.menu.FlashSize.4M1M.upload.maximum_size=1044464
 
 espino.menu.FlashSize.4M3M=4M (3M SPIFFS)
 espino.menu.FlashSize.4M3M.build.flash_size=4M
-espino.menu.FlashSize.4M3M.build.flash_ld=eagle.flash.4m.ld
+espino.menu.FlashSize.4M3M.build.flash_ld=../ld/eagle.app.v6.ld
 espino.menu.FlashSize.4M3M.build.spiffs_start=0x100000
 espino.menu.FlashSize.4M3M.build.spiffs_end=0x3FB000
 espino.menu.FlashSize.4M3M.build.spiffs_blocksize=8192
@@ -1720,7 +1716,7 @@ espinotee.menu.UploadSpeed.921600.upload.speed=921600
 
 espinotee.menu.FlashSize.4M3M=4M (3M SPIFFS)
 espinotee.menu.FlashSize.4M3M.build.flash_size=4M
-espinotee.menu.FlashSize.4M3M.build.flash_ld=eagle.flash.4m.ld
+espinotee.menu.FlashSize.4M3M.build.flash_ld=../ld/eagle.app.v6.ld
 espinotee.menu.FlashSize.4M3M.build.spiffs_start=0x100000
 espinotee.menu.FlashSize.4M3M.build.spiffs_end=0x3FB000
 espinotee.menu.FlashSize.4M3M.build.spiffs_blocksize=8192
@@ -2035,7 +2031,7 @@ coredev.menu.FlashSize.4M1M.upload.maximum_size=1044464
 
 coredev.menu.FlashSize.4M3M=4M (3M SPIFFS)
 coredev.menu.FlashSize.4M3M.build.flash_size=4M
-coredev.menu.FlashSize.4M3M.build.flash_ld=eagle.flash.4m.ld
+coredev.menu.FlashSize.4M3M.build.flash_ld=../ld/eagle.app.v6.ld
 coredev.menu.FlashSize.4M3M.build.spiffs_start=0x100000
 coredev.menu.FlashSize.4M3M.build.spiffs_end=0x3FB000
 coredev.menu.FlashSize.4M3M.build.spiffs_pagesize=256
@@ -2167,7 +2163,7 @@ arduino-esp8266.menu.FlashSize.4M1M.build.spiffs_pagesize=256
 
 arduino-esp8266.menu.FlashSize.4M3M=4M (3M SPIFFS)
 arduino-esp8266.menu.FlashSize.4M3M.build.flash_size=4M
-arduino-esp8266.menu.FlashSize.4M3M.build.flash_ld=eagle.flash.4m.ld
+arduino-esp8266.menu.FlashSize.4M3M.build.flash_ld=../ld/eagle.app.v6.ld
 arduino-esp8266.menu.FlashSize.4M3M.build.spiffs_start=0x100000
 arduino-esp8266.menu.FlashSize.4M3M.build.spiffs_end=0x3FB000
 arduino-esp8266.menu.FlashSize.4M3M.build.spiffs_blocksize=8192
