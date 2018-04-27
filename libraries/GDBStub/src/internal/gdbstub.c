@@ -59,9 +59,11 @@ void _xt_isr_unmask(int inum);
 void os_install_putc1(void (*p)(char c));
 #define os_printf(...) printf(__VA_ARGS__)
 #define os_memcpy(a,b,c) memcpy(a,b,c)
+#ifndef ESP8266_NOWIFI
 typedef void wdtfntype();
 static wdtfntype *ets_wdt_disable=(wdtfntype *)0x400030f0;
 static wdtfntype *ets_wdt_enable=(wdtfntype *)0x40002fa0;
+#endif
 
 #else
 /*
@@ -121,6 +123,7 @@ static int32_t singleStepPs=-1;			//Stores ps when single-stepping instruction. 
 
 //Small function to feed the hardware watchdog. Needed to stop the ESP from resetting
 //due to a watchdog timeout while reading a command.
+#ifndef ESP8266_NOWIFI
 static void ATTR_GDBFN keepWDTalive() {
 	uint64_t *wdtval=(uint64_t*)0x3ff21048;
 	uint64_t *wdtovf=(uint64_t*)0x3ff210cc;
@@ -128,12 +131,15 @@ static void ATTR_GDBFN keepWDTalive() {
 	*wdtovf=*wdtval+1600000;
 	*wdtctl|=(1<<31);
 }
+#endif
 
 //Receive a char from the uart. Uses polling and feeds the watchdog.
 static int ATTR_GDBFN gdbRecvChar() {
 	int i;
 	while (((READ_PERI_REG(UART_STATUS(0))>>UART_RXFIFO_CNT_S)&UART_RXFIFO_CNT)==0) {
+#ifndef ESP8266_NOWIFI
 		keepWDTalive();
+#endif
 	}
 	i=READ_PERI_REG(UART_FIFO(0));
 	return i;
@@ -567,7 +573,9 @@ static void ATTR_GDBFN emulLdSt() {
 //We just caught a debug exception and need to handle it. This is called from an assembly
 //routine in gdbstub-entry.S
 void ATTR_GDBFN gdbstub_handle_debug_exception() {
+#ifndef ESP8266_NOWIFI
 	ets_wdt_disable();
+#endif
 
 	if (singleStepPs!=-1) {
 		//We come here after single-stepping an instruction. Interrupts are disabled
@@ -600,18 +608,24 @@ void ATTR_GDBFN gdbstub_handle_debug_exception() {
 			gdbstub_savedRegs.pc+=3;
 		}
 	}
+#ifndef ESP8266_NOWIFI
 	ets_wdt_enable();
+#endif
 }
 
 
 #if GDBSTUB_FREERTOS
 //Freetos exception. This routine is called by an assembly routine in gdbstub-entry.S
 void ATTR_GDBFN gdbstub_handle_user_exception() {
+#ifndef ESP8266_NOWIFI
 	ets_wdt_disable();
+#endif
 	gdbstub_savedRegs.reason|=0x80; //mark as an exception reason
 	sendReason();
 	while(gdbReadCommand()!=ST_CONT);
+#ifndef ESP8266_NOWIFI
 	ets_wdt_enable();
+#endif
 }
 #else
 
@@ -627,11 +641,15 @@ static void ATTR_GDBFN gdb_exception_handler(struct XTensa_exception_frame_s *fr
 
 	gdbstub_savedRegs.reason|=0x80; //mark as an exception reason
 
+#ifndef ESP8266_NOWIFI
 	ets_wdt_disable();
+#endif
 	*((uint32_t*)UART_INT_ENA(0)) = 0;
 	sendReason();
 	while(gdbReadCommand()!=ST_CONT);
+#ifndef ESP8266_NOWIFI
 	ets_wdt_enable();
+#endif
 
 	//Copy any changed registers back to the frame the Xtensa HAL uses.
 	os_memcpy(frame, &gdbstub_savedRegs, 19*4);
@@ -707,10 +725,14 @@ static void ATTR_GDBFN uart_hdlr(void *arg, void *frame) {
 
 		gdbstub_savedRegs.reason=0xff; //mark as user break reason
 
+#ifndef ESP8266_NOWIFI
 		ets_wdt_disable();
+#endif
 		sendReason();
 		while(gdbReadCommand()!=ST_CONT);
+#ifndef ESP8266_NOWIFI
 		ets_wdt_enable();
+#endif
 		//Copy any changed registers back to the frame the Xtensa HAL uses.
 		os_memcpy(frame, &gdbstub_savedRegs, 19*4);
 	}
