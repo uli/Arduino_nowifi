@@ -587,7 +587,8 @@
 #  define DBG_LOG_INFO( format, ... )
 #endif
 
-#define DBG_LOG_FORCE( force, format, ... ) {if(force) {printf( format, ## __VA_ARGS__  );}}
+//#define DBG_LOG_FORCE( force, format, ... ) {if(force) {printf( format, ## __VA_ARGS__  );}}
+#define DBG_LOG_FORCE( force, format, ... )
 
 /* }}} */
 
