@@ -30,8 +30,8 @@ extern void esp_yield();
 
 #ifndef ESP8266_NOWIFI
 static os_timer_t delay_timer;
-#endif
 static os_timer_t micros_overflow_timer;
+#endif
 static uint32_t micros_at_last_overflow_tick = 0;
 static uint32_t micros_overflow_count = 0;
 #define ONCE 0
@@ -59,6 +59,7 @@ void delay(unsigned long ms) {
 #endif
 }
 
+#ifndef ESP8266_NOWIFI
 void micros_overflow_tick(void* arg) {
     (void) arg;
     uint32_t m = system_get_time();
@@ -66,11 +67,21 @@ void micros_overflow_tick(void* arg) {
         ++micros_overflow_count;
     micros_at_last_overflow_tick = m;
 }
+#endif
 
 unsigned long ICACHE_RAM_ATTR millis() {
     uint32_t m = system_get_time();
+
+#ifdef ESP8266_NOWIFI
+    if (m < micros_at_last_overflow_tick)
+        ++micros_overflow_count;
+    micros_at_last_overflow_tick = m;
+
+    return micros_overflow_count * 4294967 + m / 1000;
+#else
     uint32_t c = micros_overflow_count + ((m < micros_at_last_overflow_tick) ? 1 : 0);
     return c * 4294967 + m / 1000;
+#endif
 }
 
 unsigned long ICACHE_RAM_ATTR micros() {
@@ -84,6 +95,8 @@ void ICACHE_RAM_ATTR delayMicroseconds(unsigned int us) {
 void init() {
     initPins();
     timer1_isr_init();
+#ifndef ESP8266_NOWIFI
     os_timer_setfn(&micros_overflow_timer, (os_timer_func_t*) &micros_overflow_tick, 0);
     os_timer_arm(&micros_overflow_timer, 60000, REPEAT);
+#endif
 }
